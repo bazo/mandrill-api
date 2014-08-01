@@ -1,0 +1,21 @@
+{
+	"name": "bazo/mandrill-api",
+	"authors": [
+		{
+			"name": "Martin Bažík",
+			"email": "martin@bazo.sk"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"guzzle/guzzle": "3.9.1"
+	},
+	"require-dev": {
+		"nette/tester": "@dev"
+	},
+	"autoload": {
+		"psr-0": {
+			"Bazo": "src/"
+		}
+	}
+}

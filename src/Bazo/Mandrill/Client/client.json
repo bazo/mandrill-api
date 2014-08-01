@@ -1,0 +1,84 @@
+{
+	"name": "Mandrill API",
+	"apiVersion": "v",
+	"description": "A client that provides access to the Mandrill API",
+	"operations": {
+		"users-info": {
+			"httpMethod": "POST",
+			"uri": "users/info.json",
+			"summary": "Return the information about the API-connected user",
+			"parameters": {
+				"key": {
+					"location": "postField",
+					"type": "string",
+					"description": "Api key",
+					"required": false
+				}
+			}
+		},
+		"users-ping": {
+			"httpMethod": "POST",
+			"uri": "users/ping.json",
+			"summary": "Validate an API key and respond to a ping",
+			"parameters": {
+				"key": {
+					"location": "postField",
+					"type": "string",
+					"description": "Api key",
+					"required": true
+				}
+			}
+		},
+		"users-ping2": {
+			"httpMethod": "POST",
+			"uri": "users/ping2.json",
+			"summary": "Validate an API key and respond to a ping (anal JSON parser version)",
+			"parameters": {
+				"key": {
+					"location": "postField",
+					"type": "string",
+					"description": "Api key",
+					"required": true
+				}
+			}
+		},
+		"users-senders": {
+			"httpMethod": "POST",
+			"uri": "users/senders.json",
+			"summary": "Return the senders that have tried to use this account, both verified and unverified",
+			"parameters": {
+				"key": {
+					"location": "postField",
+					"type": "string",
+					"description": "Api key",
+					"required": true
+				}
+			}
+		},
+		"messages-send": {
+			"httpMethod": "POST",
+			"uri": "messages/send.json",
+			"summary": "Return the senders that have tried to use this account, both verified and unverified",
+			"parameters": {
+				"key": {
+					"location": "postField",
+					"type": "string",
+					"description": "Api key",
+					"required": true
+				},
+				"message": {
+					"location": "postField",
+					"type": "array",
+					"description": "The information on the message to send, see https://mandrillapp.com/api/docs/messages.html#method-send",
+					"required": true
+				},
+				"async": {
+					"location": "postField",
+					"type": "boolean",
+					"description": "enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of \"queued\" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.",
+					"required": false
+				}
+			}
+		}
+	}
+}
