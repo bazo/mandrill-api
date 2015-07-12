@@ -2,6 +2,8 @@
 
 namespace Bazo\Mandrill\Client;
 
+use Bazo\Mandrill\Calls\Messages;
+use Bazo\Mandrill\Calls\Users;
 use Guzzle\Common\Collection;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
@@ -12,16 +14,16 @@ use Guzzle\Service\Description\ServiceDescription;
  * MandrillClient
  *
  * @author Martin Bažík <martin@bazo.sk>
- * @property-read \Mandrill\Calls\Users $users Users Calls
- * @property-read \Mandrill\Calls\Messages $messages Messages Calls
+ * @property-read Users $users Users Calls
+ * @property-read Messages $messages Messages Calls
  */
 class MandrillClient extends Client
 {
 
-	/** @var \Mandrill\Calls\Users */
+	/** @var Users */
 	private $users;
 
-	/** @var \Mandrill\Calls\Messages */
+	/** @var Messages */
 	private $messages;
 
 	/** @var array */
@@ -50,8 +52,8 @@ class MandrillClient extends Client
 			$e['command']->set('key', $key);
 		});
 
-		$this->users = new \Mandrill\Calls\Users($this);
-		$this->messages = new \Mandrill\Calls\Messages($this);
+		$this->users = new Users($this);
+		$this->messages = new Messages($this);
 	}
 
 
